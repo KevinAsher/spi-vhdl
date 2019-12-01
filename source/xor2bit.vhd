@@ -9,9 +9,9 @@ entity xor2bit is
 	);
 end xor2bit;
 
-architecture hardware of xor2bit is
+architecture rtl of xor2bit is
 begin
 
 	o_X <= i_A xor i_B;
 
-end hardware;
+end rtl;

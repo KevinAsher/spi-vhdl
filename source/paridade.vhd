@@ -8,7 +8,7 @@ entity paridade is
 	);
 end paridade;
 
-architecture hardware of paridade is
+architecture rtl of paridade is
 
 	component xor2bit is port
 	(
@@ -56,6 +56,6 @@ begin
 		w_y5,w_y6,w_y7
 	);
 	
-	o_par <= not w_y7;
+	o_par <= w_y7;
 
-end hardware;
+end rtl;
