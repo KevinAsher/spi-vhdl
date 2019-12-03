@@ -1,8 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all; 
-use std.env.finish;
-use work.mips_test_helpers_pkg.all;
 
 entity spi_master_datapath is
 	 port (
