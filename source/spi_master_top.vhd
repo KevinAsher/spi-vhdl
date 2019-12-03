@@ -29,7 +29,7 @@ architecture rtl of spi_master_top is
   
 begin
 
-  u_spi_master_control: entity work.spi_master_control(rtl)
+  u_SPI_MASTER_CONTROL: entity work.spi_master_control(rtl)
 	port map(
     i_CLK  					=>  i_CLK,
     i_RST           =>  i_RST,
@@ -43,7 +43,7 @@ begin
 	);
 
 
-  u_spi_master_datapath: entity work.spi_master_datapath(rtl)
+  u_SPI_MASTER_DATAPATH: entity work.spi_master_datapath(rtl)
 	port map(
 		i_CLK  					=>  i_CLK,
 		i_COUNTER_CLR 	=>  w_COUNTER_CLR,
