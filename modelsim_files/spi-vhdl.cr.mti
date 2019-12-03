@@ -1,0 +1,93 @@
+C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/frequency_divider.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/frequency_divider.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity frequency_divider
+-- Compiling architecture rtl of frequency_divider
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/adder.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/adder.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity adder
+-- Compiling architecture rtl of adder
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/testbench/tb_spi_master_top.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/testbench/tb_spi_master_top.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_spi_master_top
+-- Compiling architecture rtl of tb_spi_master_top
+-- Loading entity spi_master_top
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_top.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_top.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity spi_master_top
+-- Compiling architecture rtl of spi_master_top
+-- Loading entity spi_master_control
+-- Loading package NUMERIC_STD
+-- Loading entity spi_master_datapath
+-- Loading entity frequency_divider
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_datapath.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_datapath.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity spi_master_datapath
+-- Compiling architecture rtl of spi_master_datapath
+-- Loading entity adder
+-- Loading entity mux
+-- Loading entity paridade
+-- Loading entity register_16_bits_in_8_bits_out
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/register_16_bits_in_8_bits_out.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/register_16_bits_in_8_bits_out.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity register_16_bits_in_8_bits_out
+-- Compiling architecture rtl of register_16_bits_in_8_bits_out
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/xor2bit.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/xor2bit.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xor2bit
+-- Compiling architecture rtl of xor2bit
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/paridade.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/paridade.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity paridade
+-- Compiling architecture rtl of paridade
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/mux.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/mux.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux
+-- Compiling architecture rtl of mux
+
+} {} {}} C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_control.vhd {1 {vcom -work work -2008 -explicit C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity spi_master_control
+-- Compiling architecture rtl of spi_master_control
+
+} {} {}}

@@ -1,0 +1,380 @@
+Analysis & Synthesis report for spi-vhdl
+Tue Dec 03 10:41:24 2019
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |spi_master_top|spi_master_control:u_SPI_MASTER_CONTROL|w_ESTADO_ATUAL
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: frequency_divider:u_FREQUENCY_DIVIDER
+ 14. Port Connectivity Checks: "spi_master_datapath:u_SPI_MASTER_DATAPATH|register_16_bits_in_8_bits_out:u_register_16_bits_in_8_bits_out"
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 03 10:41:23 2019      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; spi-vhdl                                   ;
+; Top-level Entity Name              ; spi_master_top                             ;
+; Family                             ; Cyclone IV GX                              ;
+; Total logic elements               ; 18                                         ;
+;     Total combinational functions  ; 18                                         ;
+;     Dedicated logic registers      ; 14                                         ;
+; Total registers                    ; 14                                         ;
+; Total pins                         ; 7                                          ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total GXB Receiver Channel PCS     ; 0                                          ;
+; Total GXB Receiver Channel PMA     ; 0                                          ;
+; Total GXB Transmitter Channel PCS  ; 0                                          ;
+; Total GXB Transmitter Channel PMA  ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; spi_master_top     ; spi-vhdl           ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++----------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                   ; Library ;
++----------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+; ../source/xor2bit.vhd                        ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/xor2bit.vhd                        ;         ;
+; ../source/spi_master_top.vhd                 ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_top.vhd                 ;         ;
+; ../source/spi_master_datapath.vhd            ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_datapath.vhd            ;         ;
+; ../source/spi_master_control.vhd             ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_control.vhd             ;         ;
+; ../source/paridade.vhd                       ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/paridade.vhd                       ;         ;
+; ../source/mux.vhd                            ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/mux.vhd                            ;         ;
+; ../source/frequency_divider.vhd              ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/frequency_divider.vhd              ;         ;
+; ../source/adder.vhd                          ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/adder.vhd                          ;         ;
+; ../source/register_16_bits_in_8_bits_out.vhd ; yes             ; User VHDL File  ; C:/Facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/register_16_bits_in_8_bits_out.vhd ;         ;
++----------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 7                ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; i_CLK~input      ;
+; Maximum fan-out          ; 14               ;
+; Total fan-out            ; 99               ;
+; Average fan-out          ; 2.15             ;
++--------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                     ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+; |spi_master_top                                ; 18 (0)            ; 14 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 7    ; 0            ; |spi_master_top                                                         ;              ;
+;    |frequency_divider:u_FREQUENCY_DIVIDER|     ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |spi_master_top|frequency_divider:u_FREQUENCY_DIVIDER                   ;              ;
+;    |spi_master_control:u_SPI_MASTER_CONTROL|   ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |spi_master_top|spi_master_control:u_SPI_MASTER_CONTROL                 ;              ;
+;    |spi_master_datapath:u_SPI_MASTER_DATAPATH| ; 9 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH               ;              ;
+;       |adder:u_adder|                          ; 7 (7)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|adder:u_adder ;              ;
+;       |mux:u_mux|                              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|mux:u_mux     ;              ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |spi_master_top|spi_master_control:u_SPI_MASTER_CONTROL|w_ESTADO_ATUAL                                                                                                                                                                       ;
++------------------------------+-----------------------+------------------------------+-----------------------------+-------------------------+------------------------------+----------------------------+------------------------------+---------------------+
+; Name                         ; w_ESTADO_ATUAL.END_TX ; w_ESTADO_ATUAL.NEXT_BYTE_SEL ; w_ESTADO_ATUAL.WAIT_FOR_ACK ; w_ESTADO_ATUAL.SET_MOSI ; w_ESTADO_ATUAL.SET_MOSI_LOOP ; w_ESTADO_ATUAL.INIT_VALUES ; w_ESTADO_ATUAL.INIT_BYTE_SEL ; w_ESTADO_ATUAL.INIT ;
++------------------------------+-----------------------+------------------------------+-----------------------------+-------------------------+------------------------------+----------------------------+------------------------------+---------------------+
+; w_ESTADO_ATUAL.INIT          ; 0                     ; 0                            ; 0                           ; 0                       ; 0                            ; 0                          ; 0                            ; 0                   ;
+; w_ESTADO_ATUAL.INIT_BYTE_SEL ; 0                     ; 0                            ; 0                           ; 0                       ; 0                            ; 0                          ; 1                            ; 1                   ;
+; w_ESTADO_ATUAL.INIT_VALUES   ; 0                     ; 0                            ; 0                           ; 0                       ; 0                            ; 1                          ; 0                            ; 1                   ;
+; w_ESTADO_ATUAL.SET_MOSI_LOOP ; 0                     ; 0                            ; 0                           ; 0                       ; 1                            ; 0                          ; 0                            ; 1                   ;
+; w_ESTADO_ATUAL.SET_MOSI      ; 0                     ; 0                            ; 0                           ; 1                       ; 0                            ; 0                          ; 0                            ; 1                   ;
+; w_ESTADO_ATUAL.WAIT_FOR_ACK  ; 0                     ; 0                            ; 1                           ; 0                       ; 0                            ; 0                          ; 0                            ; 1                   ;
+; w_ESTADO_ATUAL.NEXT_BYTE_SEL ; 0                     ; 1                            ; 0                           ; 0                       ; 0                            ; 0                          ; 0                            ; 1                   ;
+; w_ESTADO_ATUAL.END_TX        ; 1                     ; 0                            ; 0                           ; 0                       ; 0                            ; 0                          ; 0                            ; 1                   ;
++------------------------------+-----------------------+------------------------------+-----------------------------+-------------------------+------------------------------+----------------------------+------------------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++-----------------------------------------------+----------------------------------------+
+; Register name                                 ; Reason for Removal                     ;
++-----------------------------------------------+----------------------------------------+
+; frequency_divider:u_FREQUENCY_DIVIDER|counter ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1         ;                                        ;
++-----------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 14    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                    ;
++-----------------------------------------------------------------------+---------+
+; Inverted Register                                                     ; Fan out ;
++-----------------------------------------------------------------------+---------+
+; spi_master_datapath:u_SPI_MASTER_DATAPATH|adder:u_adder|o_Sinalizador ; 2       ;
+; Total number of inverted registers = 1                                ;         ;
++-----------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|adder:u_adder|r_COUNT[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: frequency_divider:u_FREQUENCY_DIVIDER ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; g_freq_hz      ; 1     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spi_master_datapath:u_SPI_MASTER_DATAPATH|register_16_bits_in_8_bits_out:u_register_16_bits_in_8_bits_out" ;
++----------------+-------+----------+---------------------------------------------------------------------------------------------------+
+; Port           ; Type  ; Severity ; Details                                                                                           ;
++----------------+-------+----------+---------------------------------------------------------------------------------------------------+
+; i_data[13..12] ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; i_data[2..1]   ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; i_data[15..14] ; Input ; Info     ; Stuck at GND                                                                                      ;
+; i_data[9..7]   ; Input ; Info     ; Stuck at GND                                                                                      ;
+; i_data[11]     ; Input ; Info     ; Stuck at GND                                                                                      ;
+; i_data[10]     ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; i_data[6]      ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; i_data[5]      ; Input ; Info     ; Stuck at GND                                                                                      ;
+; i_data[4]      ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; i_data[3]      ; Input ; Info     ; Stuck at GND                                                                                      ;
+; i_data[0]      ; Input ; Info     ; Stuck at GND                                                                                      ;
++----------------+-------+----------+---------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Tue Dec 03 10:41:21 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spi-vhdl -c spi-vhdl
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/xor2bit.vhd
+    Info (12022): Found design unit 1: xor2bit-rtl
+    Info (12023): Found entity 1: xor2bit
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_top.vhd
+    Info (12022): Found design unit 1: spi_master_top-rtl
+    Info (12023): Found entity 1: spi_master_top
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_datapath.vhd
+    Info (12022): Found design unit 1: spi_master_datapath-rtl
+    Info (12023): Found entity 1: spi_master_datapath
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/spi_master_control.vhd
+    Info (12022): Found design unit 1: spi_master_control-rtl
+    Info (12023): Found entity 1: spi_master_control
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/paridade.vhd
+    Info (12022): Found design unit 1: paridade-rtl
+    Info (12023): Found entity 1: paridade
+Warning (12090): Entity "mux" obtained from "../source/mux.vhd" instead of from Quartus II megafunction library
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/mux.vhd
+    Info (12022): Found design unit 1: mux-rtl
+    Info (12023): Found entity 1: mux
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/frequency_divider.vhd
+    Info (12022): Found design unit 1: frequency_divider-rtl
+    Info (12023): Found entity 1: frequency_divider
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/adder.vhd
+    Info (12022): Found design unit 1: adder-rtl
+    Info (12023): Found entity 1: adder
+Info (12021): Found 2 design units, including 1 entities, in source file /facul/10-semestre/comunicacao-digital/m3/spi-vhdl/source/register_16_bits_in_8_bits_out.vhd
+    Info (12022): Found design unit 1: register_16_bits_in_8_bits_out-rtl
+    Info (12023): Found entity 1: register_16_bits_in_8_bits_out
+Info (12127): Elaborating entity "spi_master_top" for the top level hierarchy
+Info (12129): Elaborating entity "spi_master_control" using architecture "A:rtl" for hierarchy "spi_master_control:u_SPI_MASTER_CONTROL"
+Warning (10492): VHDL Process Statement warning at spi_master_control.vhd(83): signal "w_SHOULD_END_TX" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at spi_master_control.vhd(47): inferring latch(es) for signal or variable "w_PROXIMO_ESTADO", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "w_BYTE_SEL" at spi_master_control.vhd(111)
+Info (10041): Inferred latch for "w_START_TX" at spi_master_control.vhd(96)
+Info (12129): Elaborating entity "spi_master_datapath" using architecture "A:rtl" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH"
+Warning (10540): VHDL Signal Declaration warning at spi_master_datapath.vhd(21): used explicit default value for signal "w_REG_DATA" because signal was never assigned a value
+Info (12129): Elaborating entity "adder" using architecture "A:rtl" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH|adder:u_adder"
+Warning (10492): VHDL Process Statement warning at adder.vhd(34): signal "r_COUNT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12129): Elaborating entity "mux" using architecture "A:rtl" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH|mux:u_mux"
+Info (12129): Elaborating entity "paridade" using architecture "A:rtl" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade"
+Info (12128): Elaborating entity "xor2bit" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U1"
+Info (12129): Elaborating entity "register_16_bits_in_8_bits_out" using architecture "A:rtl" for hierarchy "spi_master_datapath:u_SPI_MASTER_DATAPATH|register_16_bits_in_8_bits_out:u_register_16_bits_in_8_bits_out"
+Warning (10492): VHDL Process Statement warning at register_16_bits_in_8_bits_out.vhd(25): signal "i_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at register_16_bits_in_8_bits_out.vhd(28): signal "i_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12129): Elaborating entity "frequency_divider" using architecture "A:rtl" for hierarchy "frequency_divider:u_FREQUENCY_DIVIDER"
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 25 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 18 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 600 megabytes
+    Info: Processing ended: Tue Dec 03 10:41:24 2019
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

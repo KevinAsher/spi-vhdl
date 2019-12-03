@@ -1,0 +1,205 @@
+|spi_master_top
+i_CLK => spi_master_control:u_SPI_MASTER_CONTROL.i_CLK
+i_CLK => spi_master_datapath:u_SPI_MASTER_DATAPATH.i_CLK
+i_CLK => frequency_divider:u_FREQUENCY_DIVIDER.clk_in
+i_RST => spi_master_control:u_SPI_MASTER_CONTROL.i_RST
+i_RST => frequency_divider:u_FREQUENCY_DIVIDER.reset
+i_START => spi_master_control:u_SPI_MASTER_CONTROL.i_START
+i_MISO => spi_master_control:u_SPI_MASTER_CONTROL.i_ACK
+o_SS <= spi_master_control:u_SPI_MASTER_CONTROL.o_SS
+o_MOSI <= spi_master_datapath:u_SPI_MASTER_DATAPATH.o_MOSI
+o_CLK <= frequency_divider:u_FREQUENCY_DIVIDER.clk_out
+
+
+|spi_master_top|spi_master_control:u_SPI_MASTER_CONTROL
+i_CLK => w_ESTADO_ATUAL~1.DATAIN
+i_RST => w_ESTADO_ATUAL~3.DATAIN
+i_START => Selector0.IN3
+i_START => Selector1.IN0
+i_ACK => Selector2.IN4
+i_ACK => w_PROXIMO_ESTADO.NEXT_BYTE_SEL.DATAB
+i_ACK => Selector6.IN3
+i_ACK => Selector2.IN3
+i_ACK => o_SS.DATAIN
+i_COUNTER_LT_10 => Selector4.IN1
+i_COUNTER_LT_10 => Selector5.IN1
+o_SS <= i_ACK.DB_MAX_OUTPUT_PORT_TYPE
+o_COUNTER_CLR <= o_COUNTER_CLR.DB_MAX_OUTPUT_PORT_TYPE
+o_COUNTER_INC <= o_COUNTER_INC.DB_MAX_OUTPUT_PORT_TYPE
+o_BYTE_SEL <= <VCC>
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH
+i_CLK => adder:u_adder.i_CLK
+i_COUNTER_CLR => adder:u_adder.i_Reset
+i_COUNTER_INC => adder:u_adder.i_Increment
+i_BYTE_SEL => register_16_bits_in_8_bits_out:u_register_16_bits_in_8_bits_out.i_Byte_Sel
+o_COUNTER_LT_10 <= adder:u_adder.o_Sinalizador
+o_MOSI <= mux:u_mux.o_Data
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|adder:u_adder
+i_CLK => o_Sinalizador~reg0.CLK
+i_CLK => r_COUNT[0].CLK
+i_CLK => r_COUNT[1].CLK
+i_CLK => r_COUNT[2].CLK
+i_CLK => r_COUNT[3].CLK
+i_Reset => o_Sinalizador.OUTPUTSELECT
+i_Reset => r_COUNT.OUTPUTSELECT
+i_Reset => r_COUNT.OUTPUTSELECT
+i_Reset => r_COUNT.OUTPUTSELECT
+i_Reset => r_COUNT.OUTPUTSELECT
+i_Increment => process_0.IN1
+o_Sinalizador <= o_Sinalizador~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_Contador[0] <= r_COUNT[0].DB_MAX_OUTPUT_PORT_TYPE
+o_Contador[1] <= r_COUNT[1].DB_MAX_OUTPUT_PORT_TYPE
+o_Contador[2] <= r_COUNT[2].DB_MAX_OUTPUT_PORT_TYPE
+o_Contador[3] <= r_COUNT[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|mux:u_mux
+i_Sel[0] => Equal0.IN2
+i_Sel[0] => Equal1.IN3
+i_Sel[0] => Equal2.IN1
+i_Sel[0] => Equal3.IN3
+i_Sel[0] => Equal4.IN2
+i_Sel[0] => Equal5.IN3
+i_Sel[0] => Equal6.IN2
+i_Sel[0] => Equal7.IN3
+i_Sel[0] => Equal8.IN3
+i_Sel[1] => Equal0.IN1
+i_Sel[1] => Equal1.IN2
+i_Sel[1] => Equal2.IN3
+i_Sel[1] => Equal3.IN1
+i_Sel[1] => Equal4.IN1
+i_Sel[1] => Equal5.IN2
+i_Sel[1] => Equal6.IN3
+i_Sel[1] => Equal7.IN2
+i_Sel[1] => Equal8.IN2
+i_Sel[2] => Equal0.IN0
+i_Sel[2] => Equal1.IN1
+i_Sel[2] => Equal2.IN2
+i_Sel[2] => Equal3.IN2
+i_Sel[2] => Equal4.IN3
+i_Sel[2] => Equal5.IN1
+i_Sel[2] => Equal6.IN1
+i_Sel[2] => Equal7.IN1
+i_Sel[2] => Equal8.IN1
+i_Sel[3] => Equal0.IN3
+i_Sel[3] => Equal1.IN0
+i_Sel[3] => Equal2.IN0
+i_Sel[3] => Equal3.IN0
+i_Sel[3] => Equal4.IN0
+i_Sel[3] => Equal5.IN0
+i_Sel[3] => Equal6.IN0
+i_Sel[3] => Equal7.IN0
+i_Sel[3] => Equal8.IN0
+i_Data[0] => o_Data.DATAB
+i_Data[1] => o_Data.DATAB
+i_Data[2] => o_Data.DATAB
+i_Data[3] => o_Data.DATAB
+i_Data[4] => o_Data.DATAB
+i_Data[5] => o_Data.DATAB
+i_Data[6] => o_Data.DATAB
+i_Data[7] => o_Data.DATAB
+i_par => o_Data.DATAA
+o_Data <= o_Data.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade
+i_dado[0] => xor2bit:U1.i_A
+i_dado[1] => xor2bit:U1.i_B
+i_dado[2] => xor2bit:U2.i_A
+i_dado[3] => xor2bit:U2.i_B
+i_dado[4] => xor2bit:U3.i_A
+i_dado[5] => xor2bit:U3.i_B
+i_dado[6] => xor2bit:U4.i_A
+i_dado[7] => xor2bit:U4.i_B
+o_par <= xor2bit:U7.o_X
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U1
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U2
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U3
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U4
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U5
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U6
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|paridade:u_paridade|xor2bit:U7
+i_A => o_X.IN0
+i_B => o_X.IN1
+o_X <= o_X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|spi_master_datapath:u_SPI_MASTER_DATAPATH|register_16_bits_in_8_bits_out:u_register_16_bits_in_8_bits_out
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_Byte_Sel => o_Read_DATA.OUTPUTSELECT
+i_DATA[0] => o_Read_DATA.DATAA
+i_DATA[1] => o_Read_DATA.DATAA
+i_DATA[2] => o_Read_DATA.DATAA
+i_DATA[3] => o_Read_DATA.DATAA
+i_DATA[4] => o_Read_DATA.DATAA
+i_DATA[5] => o_Read_DATA.DATAA
+i_DATA[6] => o_Read_DATA.DATAA
+i_DATA[7] => o_Read_DATA.DATAA
+i_DATA[8] => o_Read_DATA.DATAB
+i_DATA[9] => o_Read_DATA.DATAB
+i_DATA[10] => o_Read_DATA.DATAB
+i_DATA[11] => o_Read_DATA.DATAB
+i_DATA[12] => o_Read_DATA.DATAB
+i_DATA[13] => o_Read_DATA.DATAB
+i_DATA[14] => o_Read_DATA.DATAB
+i_DATA[15] => o_Read_DATA.DATAB
+o_Read_DATA[0] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[1] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[2] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[3] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[4] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[5] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[6] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_Read_DATA[7] <= o_Read_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_master_top|frequency_divider:u_FREQUENCY_DIVIDER
+clk_in => counter.CLK
+clk_in => temporal.CLK
+reset => counter.ACLR
+reset => temporal.ACLR
+clk_out <= temporal.DB_MAX_OUTPUT_PORT_TYPE
+
+

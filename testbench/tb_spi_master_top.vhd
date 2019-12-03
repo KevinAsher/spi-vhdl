@@ -80,7 +80,11 @@ begin
       wait until rising_edge(w_CLK);
     end loop;	
     
-      
+    -- Simular sucesso na transmissão ACK=0
+    w_MISO <= '0';
+    wait until rising_edge(w_CLK);
+    w_MISO <= 'Z';
+    wait until rising_edge(w_CLK);
 		
 		wait;
 	end process;
